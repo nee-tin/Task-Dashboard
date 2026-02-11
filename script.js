@@ -130,7 +130,6 @@ fontWeight: '500'
 </span>
 <button
 onClick={() => deleteTask(task.id)}
-
 style={{
 background: 'red',
 color: 'white',
@@ -164,37 +163,3 @@ Delete
 // Render dashboard
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Dashboard />);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
