@@ -1,10 +1,20 @@
 const { useState, useEffect, useRef } = React;
 
 function Dashboard() {
-  const [tasks, setTasks] = useState([]);
+  // Load from localStorage initially
+  const [tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem('tasks');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const [input, setInput] = useState('');
   const chartRef = useRef(null);
-  const chartInstance = useRef(null);   // ✅ better than state
+  const chartInstance = useRef(null);
+
+  // Save tasks to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   // Add task
   const addTask = () => {
